@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import './scss/style.scss'
 import { Header } from './components/Header.jsx'
+import { Details } from './components/Details.jsx'
 const API_KEY = import.meta.env.VITE_API_KEY
 
 
@@ -11,19 +12,20 @@ const API_KEY = import.meta.env.VITE_API_KEY
 
 
 function App() {
-  const [games, setGames] = useState([])
+  // const [games, setGames] = useState([])
 
-  let searchApi = `https://api.rawg.io/api/games?key=${API_KEY}`
+  // let searchApi = `https://api.rawg.io/api/games?key=${API_KEY}`
 
-  const getGames = fetch(searchApi)
-  .then(response => response.json())
-  .then(data => console.log(data.results))
-  .catch(error => console.error(error))
+  // const getGames = fetch(searchApi)
+  // .then(response => response.json())
+  // .then(data => console.log(data.results))
+  // .catch(error => console.error(error))
     
 
   return (
     <>
       <Header />
+      <Details />
     </>
   )
 }
