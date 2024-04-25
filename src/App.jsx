@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "./scss/style.scss";
 import { Header } from "./components/Header.jsx";
@@ -27,10 +25,7 @@ function App() {
 
 
   return (
-    <>
-      <Header />
-      <GamesList games={ games }/>
-    </>
+    <GamesList games={ games }/>
   );
 }
 
