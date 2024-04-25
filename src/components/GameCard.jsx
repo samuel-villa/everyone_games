@@ -2,8 +2,7 @@ import { FaWindows, FaXbox, FaPlaystation, FaApple, FaLinux, FaAndroid } from "r
 import { BsNintendoSwitch } from "react-icons/bs";
 import { SiAtari, SiCommodore, SiSega } from "react-icons/si";
 import { TbWorldWww } from "react-icons/tb";
-
-
+import { FaPlus } from "react-icons/fa6";
 
 
 const platformsLogos = {
@@ -32,18 +31,23 @@ export function GameCard({ game }) {
     <div className="gameCard">
       <div className="gameCard2">
         <div className="gameCard__shown">
-            <img src={game.background_image} alt="game-bg-img"></img>
-            <ul className="platforms">
-                {game.parent_platforms.map((pf) => (
-                    pf.platform.slug in platformsLogos && (
-                        <li key={pf.platform.id}>
-                            {getPlatformLogo(pf.platform.slug)}
-                        </li>
-                    )
-                ))}
-            </ul>
-            <h2>{game.name}</h2>
-            <p>{game.added}</p>
+            <div className="imgCont"><img src={game.background_image} alt="game-bg-img"></img></div>
+            <div className="visibleDesc">
+                <ul className="platforms">
+                    {game.parent_platforms.map((pf) => (
+                        pf.platform.slug in platformsLogos && (
+                            <li key={pf.platform.id}>
+                                {getPlatformLogo(pf.platform.slug)}
+                            </li>
+                        )
+                    ))}
+                </ul>
+                <h2>{game.name}</h2>
+                <button className="added">
+                    <FaPlus />
+                    <p>{game.added}</p>
+                </button>
+            </div>
         </div>
         <div className="gameCard__hidden">
             <p>{game.metacritic}</p>
