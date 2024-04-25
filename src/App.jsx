@@ -16,10 +16,8 @@ function App() {
 
   const getGames = fetch(searchApi)
   .then(response => response.json())
-  .then(data => setGames(data.results))
+  .then(data => console.log(data.results))
   .catch(error => console.error(error))
-
-  getGames()
     
 
   return (
