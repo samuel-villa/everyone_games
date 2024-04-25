@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import './scss/style.scss'
+import { Header } from './components/Header.jsx'
 const API_KEY = import.meta.env.VITE_API_KEY
 
 
@@ -22,11 +23,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <ul>
-        <li>{games}</li>
-        </ul>
-      </div>
+      <Header />
     </>
   )
 }
