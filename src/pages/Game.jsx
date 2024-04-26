@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Header } from "../components/Header.jsx";
+import { SideBar } from "../components/SideBar.jsx";
 import "../App.css";
 import "../scss/style.scss";
 import { MdAccessTimeFilled } from "react-icons/md";
@@ -30,6 +31,7 @@ function Game() {
     }, [id]);
     return (
         <>
+            <SideBar />
             <Header />
 
             <section>
