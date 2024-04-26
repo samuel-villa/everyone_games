@@ -1,3 +1,14 @@
+.gamePage {
+    width: 83vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-left: 17vw;
+    padding-top: 20px;
+}
+
 .section {
     display: flex;
     margin-top: 10px;

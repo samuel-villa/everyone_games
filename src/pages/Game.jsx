@@ -34,7 +34,7 @@ function Game() {
             <SideBar />
             <Header />
 
-            <section>
+            <section className="gamePage">
                 {game && ( // Check if game is not null before rendering
                     <>
                         <div className="section">
