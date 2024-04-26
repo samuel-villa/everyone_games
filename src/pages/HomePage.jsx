@@ -23,11 +23,11 @@ function HomePage() {
     }, []);
   
     return (
-      <>
-          <Header />
+      <div className="homepage">
           <SideBar />
+          <Header />
           <GamesList games={ games }/>
-      </>
+      </div>
     );
   }
   
