@@ -30,7 +30,7 @@ function Game() {
             });
     }, [id]);
     return (
-        <>
+        <div className="gameDetail">
             <SideBar />
             <Header />
 
@@ -93,7 +93,7 @@ function Game() {
                     </>
                 )}
             </section>
-        </>
+        </div>
     );
 }
 
