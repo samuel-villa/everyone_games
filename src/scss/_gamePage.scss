@@ -1,0 +1,40 @@
+.section {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .section > div {
+    width: 100%;
+    margin: 5px;
+    text-align: left;
+    line-height: 50px;
+  }
+  
+  .article2 {
+    text-align: left;
+  }
+  
+  hr {
+    height: 1px;
+    border-width: 0;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+  
+  .icon-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-margin {
+    margin-right: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
