@@ -3,6 +3,7 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { SiAtari, SiCommodore, SiSega } from "react-icons/si";
 import { TbWorldWww } from "react-icons/tb";
 import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 const platformsLogos = {
@@ -28,6 +29,7 @@ export function GameCard({ game }) {
       };
 
   return (
+    <Link to={`/game/${game.id}`} >
     <div className="gameCard">
       <div className="gameCard2">
         <div className="gameCard__shown">
@@ -61,5 +63,6 @@ export function GameCard({ game }) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }

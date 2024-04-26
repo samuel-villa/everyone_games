@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { Header } from "../components/Header.jsx";
 import "../App.css";
 import "../scss/style.scss";
@@ -10,14 +11,14 @@ import { FaGear } from "react-icons/fa6";
 import { FaGlobe } from "react-icons/fa";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const GAME_ID = 231; // Hardcoded game ID
 
 
 function Game() {
     const [game, setGame] = useState(null);
+    const { id } = useParams();
 
     useEffect(() => {
-        const apiCall = `https://api.rawg.io/api/games/${GAME_ID}?key=${API_KEY}`;
+        const apiCall = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
             axios
             .get(apiCall)
             .then((response) => {
@@ -26,7 +27,7 @@ function Game() {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [id]);
     return (
         <>
             <Header />
