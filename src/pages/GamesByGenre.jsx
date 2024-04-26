@@ -21,7 +21,6 @@ function GameByGenre({ games, setGames, genres, platforms }) {
             .get(apiCall)
             .then((response) => {
                 setGames(response.data.results);
-                console.log('response.data: ', response.data.results);
             })
             .catch((error) => {
                 console.log(error);
