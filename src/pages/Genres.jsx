@@ -8,11 +8,11 @@ import { SideBar } from "../components/SideBar.jsx";
 
 function Genres({ genres }) {
     return (
-        <>
-            <Header />
+        <div className="genresPage">
             <SideBar />
+            <Header />
             <GenresList genres={ genres }/>
-        </>
+        </div>
     );
 }
 
