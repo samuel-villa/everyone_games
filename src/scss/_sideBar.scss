@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: #E3E3E3;
+    background-color: #242424;
     color: black;
     position: fixed;
     padding-top: 15vh;
@@ -8,5 +8,7 @@
 
     li {
         font-size: 2rem;
+        color: white;
+        cursor: pointer;
     }
 }
