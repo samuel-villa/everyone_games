@@ -8,6 +8,7 @@ export function GenreCard({ genre }) {
       <div className="genreCard">
         <p className="heading">Popular this month</p>
         <div>
+          <img src={genre.image_background} alt="bg_image" />
           <p>Games</p>
           <p>{genre.games_count}</p>
           <p>{genre.id}</p>
