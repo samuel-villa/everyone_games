@@ -6,14 +6,12 @@ export function GenreCard({ genre }) {
   return (
     <Link to={`/genre/${genre.id}`}>
       <div className="genreCard">
-        <p className="heading">Popular this month</p>
-        <div>
           <img src={genre.image_background} alt="bg_image" />
+        <div className="gamesCount">
           <p>Games</p>
           <p>{genre.games_count}</p>
-          <p>{genre.id}</p>
         </div>
-        <p>{genre.name}</p>
+        <p className="genreName">{genre.name}</p>
       </div>
     </Link>
   );
