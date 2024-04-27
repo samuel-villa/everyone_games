@@ -56,7 +56,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage games={games} genres={genres} platforms={platforms} />} />
+        <Route path="/" element={<HomePage games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/genres" element={<Genres genres={genres} />} />
         <Route path="/game/:id" element={<Game />} />
         <Route path="/genre/:id" element={<GameByGenre games={games} setGames={setGames} genres={genres} platforms={platforms}/>} />

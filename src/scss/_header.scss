@@ -4,6 +4,7 @@ header {
     justify-content: space-between;
     width: 100%;
     height: 10vh;
+    gap: 50px;
     box-sizing: border-box;
     transition: 0.5s;
     z-index: 101;
@@ -11,5 +12,13 @@ header {
 
     h1 {
         color: white;
+    }
+
+    input {
+        width: 73%;
+        border-radius: 25px;
+        height: 50px;
+        padding: 20px;
+        font-size: 1.5rem;
     }
 }

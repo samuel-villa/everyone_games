@@ -4,12 +4,12 @@ import { GamesList } from "../components/GamesList.jsx";
 import { SideBar } from "../components/SideBar.jsx";
 
 
-function HomePage({ games, genres, platforms }) {
+function HomePage({ games, setGames, genres, platforms }) {
 
     return (
       <div className="homepage">
           <SideBar />
-          <Header />
+          <Header setGames={ setGames }/>
           <GamesList games={ games } genres={ genres } platforms={ platforms }/>
       </div>
     );
