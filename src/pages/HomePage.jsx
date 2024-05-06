@@ -10,7 +10,7 @@ function HomePage({ games, setGames, genres, platforms }) {
       <div className="homepage">
           <SideBar />
           <Header setGames={ setGames }/>
-          <GamesList games={ games } genres={ genres } platforms={ platforms }/>
+          <GamesList games={ games } setGames={ setGames } genres={ genres } platforms={ platforms }/>
       </div>
     );
   }
