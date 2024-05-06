@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Header } from "../components/Header.jsx";
 import { GenresList } from "../components/GenresList.jsx";
 import "../App.css";
