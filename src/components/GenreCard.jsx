@@ -5,14 +5,14 @@ export function GenreCard({ genre }) {
   
   return (
     <Link to={`/genre/${genre.id}`}>
-      <div className="genreCard">
+      <article className="genreCard">
           <img src={genre.image_background} alt="bg_image" />
         <div className="gamesCount">
           <p>Games</p>
           <p>{genre.games_count}</p>
         </div>
         <p className="genreName">{genre.name}</p>
-      </div>
+      </article>
     </Link>
   );
 }

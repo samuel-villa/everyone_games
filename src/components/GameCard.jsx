@@ -30,7 +30,7 @@ export function GameCard({ game }) {
 
   return (
     <Link to={`/game/${game.id}`} >
-    <div className="gameCard">
+    <article className="gameCard">
       <div className="gameCard2">
         <div className="gameCard__shown">
             <div className="imgCont"><img src={game.background_image} alt="game-bg-img"></img></div>
@@ -62,7 +62,7 @@ export function GameCard({ game }) {
             </ul>
         </div>
       </div>
-    </div>
+    </article>
     </Link>
   );
 }
