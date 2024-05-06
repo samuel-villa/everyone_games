@@ -10,7 +10,7 @@ function Settings() {
         <div>
             <Header />
             <SideBar />
-            Settings
+            <h2>Settings</h2>
         </div>
     );
 }

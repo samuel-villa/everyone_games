@@ -28,9 +28,9 @@ function GameByGenre({ games, setGames, genres, platforms }) {
     }, [id]);
     
     return (
-        <div className="homepage">
-          <SideBar />
+        <div>
           <Header />
+          <SideBar />
           <GamesList games={ games } genres={ genres } platforms={ platforms }/>
       </div>
     );

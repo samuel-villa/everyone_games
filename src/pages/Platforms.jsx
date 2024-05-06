@@ -8,7 +8,7 @@ import "../scss/style.scss";
 
 function Platforms({ platforms }) {
     return (
-        <div className="genresPage">
+        <div>
             <Header />
             <SideBar />
             <PlatformsList platforms={ platforms }/>

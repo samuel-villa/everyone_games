@@ -31,8 +31,8 @@ function Game() {
     }, [id]);
     return (
         <div className="gameDetail">
-            <SideBar />
             <Header />
+            <SideBar />
 
             <section className="gamePage">
                 {game && ( // Check if game is not null before rendering

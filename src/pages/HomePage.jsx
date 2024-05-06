@@ -7,9 +7,9 @@ import { SideBar } from "../components/SideBar.jsx";
 function HomePage({ games, setGames, genres, platforms }) {
 
     return (
-      <div className="homepage">
-          <SideBar />
+      <div>
           <Header setGames={ setGames }/>
+          <SideBar/>
           <GamesList games={ games } setGames={ setGames } genres={ genres } platforms={ platforms }/>
       </div>
     );
