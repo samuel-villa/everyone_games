@@ -47,7 +47,6 @@ export function GamesList({ games, setGames, genres, platforms }) {
 
   useEffect(() => {
     const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${filterType}`;
-    console.log('apiCall: ', apiCall);
     axios.get(apiCall)
       .then(response => {
         setGames(response.data.results);
