@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import Genres from "./pages/Genres";
 import Platforms from "./pages/Platforms";
 import Game from "./pages/Game";
+import Settings from "./pages/Settings";
 import GameByGenre from "./pages/GamesByGenre";
 import GamesByPlatform from "./pages/GamesByPlatform";
 
@@ -75,6 +76,7 @@ function App() {
         <Route path="/platforms" element={<Platforms platforms={platforms} />} />
         <Route path="/popular-games" element={<HomePage games={popularGames} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/game/:id" element={<Game />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/genre/:id" element={<GameByGenre games={games} setGames={setGames} genres={genres} platforms={platforms}/>} />
         <Route path="/platform/:id" element={<GamesByPlatform games={games} setGames={setGames} genres={genres} platforms={platforms}/>} />
       </Routes>
