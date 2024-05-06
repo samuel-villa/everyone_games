@@ -11,6 +11,9 @@ export function SideBar() {
             <li>Next week releases</li>
             <li><Link to="/popular-games">Popular Games</Link></li>
           </ul>
+          <ul>
+            <li><Link to="/platforms">Platforms</Link></li>
+          </ul>
        
       </section>
     );

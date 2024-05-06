@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header.jsx";
-import { GenresList } from "../components/GenresList.jsx";
+import { PlatformsList } from "../components/PlatformsList.jsx";
 import "../App.css";
 import "../scss/style.scss";
 import { SideBar } from "../components/SideBar.jsx";
 
 
-function Genres({ genres }) {
+function Platforms({ platforms }) {
     return (
-        <div className="genresPage">
+        <div className="platformsPage">
             <Header />
             <SideBar />
-            <GenresList genres={ genres }/>
+            <PlatformsList platforms={ platforms }/>
         </div>
     );
 }
 
-export default Genres;
+export default Platforms;
