@@ -22,6 +22,8 @@ function App() {
   const [genres, setGenres] = useState([])
   const [platforms, setPlatforms] = useState([])
   const [popularGames, setPopularGames] = useState([])
+  const [newReleases, setNewReleases] = useState([]);
+  const [nextReleases, setNextReleases] = useState([]);
 
   useEffect(() => {
     const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}`;
@@ -67,6 +69,70 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const today = new Date();
+    const lastMonth = new Date(today);
+    lastMonth.setMonth(lastMonth.getMonth() - 1);
+
+    // Format the dates to match the API's expected format (YYYY-MM-DD)
+    const formattedToday = formatDate(today);
+    const formattedLastMonth = formatDate(lastMonth);
+
+    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${formattedLastMonth},${formattedToday}`;
+
+    axios
+      .get(apiCall)
+      .then((response) => {
+        setNewReleases(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    const today = new Date();
+    const nextMonth = new Date(today);
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+
+    // Calculate the start date of next month
+    const nextMonthStart = new Date(
+      nextMonth.getFullYear(),
+      nextMonth.getMonth(),
+      1
+    );
+
+    // Calculate the end date of next month
+    const nextMonthEnd = new Date(
+      nextMonth.getFullYear(),
+      nextMonth.getMonth() + 1,
+      0
+    );
+
+    // Format the dates to match the API's expected format (YYYY-MM-DD)
+    const formattedNextMonthStart = formatDate(nextMonthStart);
+    const formattedNextMonthEnd = formatDate(nextMonthEnd);
+
+    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${formattedNextMonthStart},${formattedNextMonthEnd}`;
+
+    axios
+      .get(apiCall)
+      .then((response) => {
+        setNextReleases(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  // Helper function to format date as YYYY-MM-DD
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
 
   return (
     <Router>
@@ -77,8 +143,10 @@ function App() {
         <Route path="/popular-games" element={<HomePage games={popularGames} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/game/:id" element={<Game />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/genre/:id" element={<GameByGenre games={games} setGames={setGames} genres={genres} platforms={platforms}/>} />
-        <Route path="/platform/:id" element={<GamesByPlatform games={games} setGames={setGames} genres={genres} platforms={platforms}/>} />
+        <Route path="/genre/:id" element={<GameByGenre games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
+        <Route path="/platform/:id" element={<GamesByPlatform games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
+        <Route path="/new-releases" element={<HomePage games={newReleases} setGames={setGames} genres={genres} platforms={platforms} />} />
+        <Route path="/next-releases" element={<HomePage games={nextReleases} setGames={setGames} genres={genres} platforms={platforms} />} />
       </Routes>
     </Router>
   );
