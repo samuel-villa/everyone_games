@@ -9,6 +9,41 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 export function GamesList({ games, setGames, genres, platforms }) {
 
   const [filterType, setFilterType] = useState(['']);
+  const [nextPage, setNextPage] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchGames();
+  }, []); // Fetch initial set of games when component mounts
+
+  const fetchGames = async () => {
+    try {
+      setLoading(true);
+      const apiCall = nextPage || `https://api.rawg.io/api/games?key=${API_KEY}`;
+      const response = await axios.get(apiCall);
+      const { results, next } = response.data;
+      setGames(prevGames => [...prevGames, ...results]); // Append new games to existing list
+      setNextPage(next); // Update next page URI
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5 && !loading && nextPage) {
+      fetchGames();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [loading, nextPage]);
 
   useEffect(() => {
     const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${filterType}`;
@@ -42,6 +77,7 @@ export function GamesList({ games, setGames, genres, platforms }) {
           <GameCard key={game.id} game={game} />
         ))}
       </ul>
+      {loading && <p>Loading...</p>}
     </>
   );
 }
