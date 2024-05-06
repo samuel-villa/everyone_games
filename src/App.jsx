@@ -18,6 +18,7 @@ function App() {
   const [games, setGames] = useState([])
   const [genres, setGenres] = useState([])
   const [platforms, setPlatforms] = useState([])
+  const [popularGames, setPopularGames] = useState([])
 
   useEffect(() => {
     const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}`;
@@ -52,12 +53,24 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=90,100`;
+    axios.get(apiCall)
+      .then(response => {
+        setPopularGames(response.data.results);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/genres" element={<Genres genres={genres} />} />
+        <Route path="/popular-games" element={<HomePage games={popularGames} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/game/:id" element={<Game />} />
         <Route path="/genre/:id" element={<GameByGenre games={games} setGames={setGames} genres={genres} platforms={platforms}/>} />
       </Routes>

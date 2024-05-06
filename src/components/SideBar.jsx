@@ -9,7 +9,7 @@ export function SideBar() {
             <li><Link to="/genres">Genres</Link></li>
             <li>New releases</li>
             <li>Next week releases</li>
-            <li>Popular Games</li>
+            <li><Link to="/popular-games">Popular Games</Link></li>
           </ul>
        
       </section>
