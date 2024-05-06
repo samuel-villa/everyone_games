@@ -15,5 +15,9 @@
 
     a {
         color: white;
+        display: flex;
+        justify-content: start;
+        gap: 20px;
+        align-items: center;
     }
 }
