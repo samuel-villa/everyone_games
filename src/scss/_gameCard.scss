@@ -61,15 +61,44 @@
 
     .gameCard__hidden {
         visibility: hidden;
+        font-size: .8rem;
+        color: white;
+
+        li {
+          display: flex;
+          gap: 5px;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .genres {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          li {
+            background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+            padding-inline: 7px;
+            border-radius: 10px;
+            font-weight: 600;
+          }
+        }
     }
   }
 
   .gameCard2:hover {
     transform: scale(0.98);
     border-radius: 20px;
+    height: 630px;
   }
 }
 
 .gameCard:hover {
   box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+  height: 630px;
+}
+
+.gameCard:hover .gameCard__hidden {
+  visibility: visible;
 }
