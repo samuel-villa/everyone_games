@@ -5,10 +5,10 @@ import "../scss/style.scss";
 import { SideBar } from "../components/SideBar.jsx";
 
 
-function Settings() {
+function Settings({ setGames }) {
     return (
         <div>
-            <Header />
+            <Header setGames={ setGames }/>
             <SideBar />
             <h2>Settings</h2>
         </div>

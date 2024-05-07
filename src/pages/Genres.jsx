@@ -6,10 +6,10 @@ import "../scss/style.scss";
 import { SideBar } from "../components/SideBar.jsx";
 
 
-function Genres({ genres }) {
+function Genres({ genres, setGames }) {
     return (
         <div>
-            <Header/>
+            <Header setGames={ setGames }/>
             <SideBar />
             <GenresList genres={ genres }/>
         </div>

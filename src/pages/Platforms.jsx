@@ -6,10 +6,10 @@ import "../App.css";
 import "../scss/style.scss";
 
 
-function Platforms({ platforms }) {
+function Platforms({ platforms, setGames }) {
     return (
         <div>
-            <Header />
+            <Header setGames={ setGames }/>
             <SideBar />
             <PlatformsList platforms={ platforms }/>
         </div>

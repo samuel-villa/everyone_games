@@ -138,11 +138,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
-        <Route path="/genres" element={<Genres genres={genres} />} />
-        <Route path="/platforms" element={<Platforms platforms={platforms} />} />
+        <Route path="/genres" element={<Genres genres={genres} setGames={setGames}/>} />
+        <Route path="/platforms" element={<Platforms platforms={platforms} setGames={setGames}/>} />
         <Route path="/popular-games" element={<HomePage games={popularGames} setGames={setGames} genres={genres} platforms={platforms} />} />
-        <Route path="/game/:id" element={<Game />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/game/:id" element={<Game setGames={setGames}/>} />
+        <Route path="/settings" element={<Settings setGames={setGames}/>} />
         <Route path="/genre/:id" element={<GameByGenre games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/platform/:id" element={<GamesByPlatform games={games} setGames={setGames} genres={genres} platforms={platforms} />} />
         <Route path="/new-releases" element={<HomePage games={newReleases} setGames={setGames} genres={genres} platforms={platforms} />} />

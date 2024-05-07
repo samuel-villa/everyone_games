@@ -29,7 +29,7 @@ function GamesByPlatform({ games, setGames, genres, platforms }) {
     
     return (
         <div>
-          <Header />
+          <Header setGames={ setGames }/>
           <SideBar/>
           <GamesList games={ games } genres={ genres } platforms={ platforms }/>
       </div>

@@ -41,7 +41,7 @@ const platformsLogos = {
   web: <TbWorldWww />,
 };
 
-function Game() {
+function Game({ setGames }) {
   const [game, setGame] = useState(null);
   const { id } = useParams();
 
@@ -64,7 +64,7 @@ function Game() {
     }, [id]);
     return (
         <div className="gameDetail">
-            <Header />
+            <Header setGames={ setGames }/>
             <SideBar />
 
       <section className="gamePage">
