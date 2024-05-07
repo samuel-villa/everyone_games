@@ -45,27 +45,26 @@ function Game({ setGames }) {
   const [game, setGame] = useState(null);
   const { id } = useParams();
 
-
   const getPlatformLogo = (slug) => {
     const platformLogo = platformsLogos[slug];
     return platformLogo || null;
   };
 
-    useEffect(() => {
-        const apiCall = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
-            axios
-            .get(apiCall)
-            .then((response) => {
-                setGame(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, [id]);
-    return (
-        <div className="gameDetail">
-            <Header setGames={ setGames }/>
-            <SideBar />
+  useEffect(() => {
+    const apiCall = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
+    axios
+      .get(apiCall)
+      .then((response) => {
+        setGame(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
+  return (
+    <div className="gameDetail">
+      <Header setGames={setGames} />
+      <SideBar />
 
       <section className="gamePage">
         {game && ( // Check if game is not null before rendering
@@ -73,9 +72,14 @@ function Game({ setGames }) {
             <div className="section">
               <div>
                 <div>
-                  <img src={game.background_image} alt={game.name} />
+                  <img
+                    className="picture"
+                    src={game.background_image}
+                    alt={game.name}
+                  />
                   {game.background_image_additional && ( // Check if background_image_additional exists
                     <img
+                      className="picture"
                       src={game.background_image_additional}
                       alt={game.name}
                     />
@@ -202,8 +206,13 @@ function Game({ setGames }) {
             <article className="article2">
               <h3>Game Description</h3>
               <hr />
-              <p>{game.description_raw}</p>
+              <p>{game.description_raw}</p> <br />
+              <hr />
+              <p>Last Updated on:&nbsp;{game.updated}</p>
             </article>
+            <section>
+              <h2>Games like {game.name}</h2>
+            </section>
           </>
         )}
       </section>
