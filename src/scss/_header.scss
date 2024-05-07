@@ -40,6 +40,7 @@ header {
 @media (max-width: 1200px) {
 
     header {
+        margin-top: 20px;
         width: 100%;
         gap: 20px;
         height: 5vh;
@@ -82,6 +83,10 @@ header {
                         gap: 20px;
                         align-items: center;
                     }
+
+                    a:hover {
+                        color: #646CFF;
+                    }
                 }
             }
         }
@@ -92,6 +97,44 @@ header {
 
         .settings {
             padding-right: 10px;
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    header {
+        margin-top: 10px;
+        flex-direction: column;
+        height: unset;
+    }
+
+    .settings {
+        display: none;
+    }
+}
+
+
+@media (max-width: 425px) {
+    header {
+        .dropdown {
+            .dropdown-menu {
+                flex-direction: column;
+                gap: 40px;
+                align-items: start;
+    
+                ul {
+                    li {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+        }
+
+        input {
+            width: 90%;
         }
     }
 }
