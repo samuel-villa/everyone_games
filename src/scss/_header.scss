@@ -10,6 +10,14 @@ header {
     z-index: 101;
     background-color: #242424;
 
+    .dropdown {
+        display: none;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
     h1 {
         color: white;
     }
@@ -25,5 +33,65 @@ header {
     .settings {
         scale: 2;
         padding-right: 20px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+    header {
+        width: 100%;
+        gap: 20px;
+        height: 5vh;
+
+        .dropdown {
+            display: block;
+            
+            .dropdown-menu {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                background-color: #242424;
+                z-index: 1500;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5vh 15vw 5vh 15vw;
+                border-bottom: #2e7ab1 solid 1px;
+    
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    gap: 20px;
+
+                    li {
+                        font-size: 1.3rem;
+                        color: white;
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+                    }
+                
+                    a {
+                        color: white;
+                        display: flex;
+                        justify-content: start;
+                        gap: 20px;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+        
+        h1 {
+            font-size: 2rem;
+        }
+
+        .settings {
+            padding-right: 10px;
+        }
     }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import DropdownMenu from "./DropDownMenu";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -27,6 +28,7 @@ export function Header({ setGames }) {
 
   return (
     <header className="container">
+      <DropdownMenu />
       <Link to="/"><h1>EveryoneGames</h1></Link>
       <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..."></input>
       <Link className="settings" to="/settings"><IoSettingsOutline /></Link>

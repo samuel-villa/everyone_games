@@ -55,3 +55,26 @@
 .filterByCont:active::before {
     filter: blur(0.2em);
 }
+
+
+@media (max-width: 1200px) {
+    .games-list {
+        padding: 1vw;
+    }
+
+    .filters {
+        width: 100%;
+        padding: 1vw;
+        font-size: .6rem;
+        gap: 10px;
+        margin: 0 auto;
+        justify-content: center;
+
+        .filterByCont {
+            button {
+                font-size: .8rem;
+                padding: 0.3em 0.3em;
+            }
+        }
+    }
+}
