@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { GameCard } from "./GameCard.jsx";
 
@@ -22,7 +23,7 @@ export function GamesList({ games, setGames, genres, platforms }) {
       const apiCall = nextPage || `https://api.rawg.io/api/games?key=${API_KEY}`;
       const response = await axios.get(apiCall);
       const { results, next } = response.data;
-      setGames(prevGames => [...prevGames, ...results]); // Append new games to existing list
+      setGames(prevGames => [...prevGames, ...results.map(game => ({ ...game, uuid: uuidv4() }))]);
       setNextPage(next); // Update next page URI
     } catch (error) {
       console.log(error);
@@ -49,7 +50,7 @@ export function GamesList({ games, setGames, genres, platforms }) {
     const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${filterType}`;
     axios.get(apiCall)
       .then(response => {
-        setGames(response.data.results);
+        setGames(response.data.results.map(game => ({ ...game, uuid: uuidv4() })));
       })
       .catch(error => {
         console.log(error);
@@ -73,7 +74,7 @@ export function GamesList({ games, setGames, genres, platforms }) {
 
       <ul className="games-list container">
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCard key={game.uuid} game={game} />
         ))}
       </ul>
       {loading && <p>Loading...</p>}
