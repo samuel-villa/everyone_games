@@ -220,22 +220,53 @@ function Game({ setGames }) {
               <hr />
               <p>Last Updated on:&nbsp;{game.updated}</p>
             </article>
-            <section>
+            {/* SERIES SECTION */}
+            {/* <section>
               <h2>Games series for {game.name}</h2>
               <div>
                 {seriesGames.map((seriesGame) => (
-                  <div key={seriesGame.id} className="series-game-preview">
-                    <img
-                      src={seriesGame.background_image}
-                      alt={seriesGame.name}
-                    />
-                    <h3>{seriesGame.name}</h3>
-                    <p>Release Date: {seriesGame.released}</p>
-                    <p>Rating: {seriesGame.rating}</p>
+                  <div key={seriesGame.id}>
+                    <div>
+                      <img
+                        src={seriesGame.background_image}
+                        alt={seriesGame.name}
+                      />
+                    </div>
+
+                    <div>
+                      {" "}
+                      <h3>{seriesGame.name}</h3>
+                      <p>Release Date: {seriesGame.released}</p>
+                      <p>Rating: {seriesGame.rating}</p>
+                    </div>
                   </div>
                 ))}
               </div>
-              <p>END OF PAGE</p>
+            </section> */}
+
+            <section>
+              <h2>Games series for {game.name}</h2>
+              <div className="series-games-container">
+                {seriesGames.map((seriesGame) => (
+                  <div key={seriesGame.id} className="gameCard">
+                    <div className="gameCard2">
+                      <div className="gameCard__shown">
+                        <div className="imgCont">
+                          <img
+                            src={seriesGame.background_image}
+                            alt={seriesGame.name}
+                          />
+                        </div>
+                        <div className="visibleDesc">
+                          <h3>{seriesGame.name}</h3>
+                          <p>Release Date: {seriesGame.released}</p>
+                          <p>Rating: {seriesGame.rating}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </section>
           </>
         )}
