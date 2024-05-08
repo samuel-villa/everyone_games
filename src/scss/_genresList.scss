@@ -3,6 +3,13 @@
     flex-direction: column;
     gap: 3vh;
     margin-top: 3vh;
+
+    h2 {
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
 }
 
 .genres-list {

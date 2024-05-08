@@ -19,7 +19,11 @@ header {
     }
 
     h1 {
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 500;
+        font-style: normal;
         color: white;
+        font-size: 5rem;
     }
 
     input {
@@ -47,7 +51,7 @@ header {
 
         .dropdown {
             display: block;
-            
+
             .dropdown-menu {
                 position: absolute;
                 width: 100%;
@@ -60,7 +64,7 @@ header {
                 align-items: center;
                 padding: 5vh 15vw 5vh 15vw;
                 border-bottom: #2e7ab1 solid 1px;
-    
+
                 ul {
                     display: flex;
                     flex-direction: column;
@@ -75,7 +79,7 @@ header {
                         flex-direction: row;
                         justify-content: start;
                     }
-                
+
                     a {
                         color: white;
                         display: flex;
@@ -90,7 +94,7 @@ header {
                 }
             }
         }
-        
+
         h1 {
             font-size: 2rem;
         }
@@ -124,7 +128,7 @@ header {
                 flex-direction: column;
                 gap: 40px;
                 align-items: start;
-    
+
                 ul {
                     li {
                         font-size: 1.3rem;
