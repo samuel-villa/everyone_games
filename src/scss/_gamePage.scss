@@ -233,3 +233,23 @@ ul {
   border: 1px solid black;
   transform: scale(1.01);
 }
+
+//RESPONSIVE PAGE
+
+@media (max-width: 1200px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .section > div {
+    text-align: center;
+  }
+
+  .title {
+    margin-bottom: 35px; /* Remove margin bottom for title */
+  }
+
+  .platform-icons {
+    background-color: #646cff;
+  }
+}

@@ -43,6 +43,7 @@ const platformsLogos = {
 
 function Game({ setGames }) {
   const [game, setGame] = useState(null);
+  const [seriesGames, setSeriesGames] = useState([]);
   const { id } = useParams();
 
   const getPlatformLogo = (slug) => {
@@ -56,11 +57,22 @@ function Game({ setGames }) {
       .get(apiCall)
       .then((response) => {
         setGame(response.data);
+        // Correctly use response.data.id here
+        const suggestedGamesApiCall = `https://api.rawg.io/api/games/${response.data.id}/game-series?key=${API_KEY}`;
+        axios
+          .get(suggestedGamesApiCall)
+          .then((seriesResponse) => {
+            setSeriesGames(seriesResponse.data.results);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
       });
   }, [id]);
+
   return (
     <div className="gameDetail">
       <Header setGames={setGames} />
@@ -71,24 +83,22 @@ function Game({ setGames }) {
           <>
             <div className="section">
               <div>
-                <div>
+                <img
+                  className="picture"
+                  src={game.background_image}
+                  alt={game.name}
+                />
+                {game.background_image_additional && ( // Check if background_image_additional exists
                   <img
                     className="picture"
-                    src={game.background_image}
+                    src={game.background_image_additional}
                     alt={game.name}
                   />
-                  {game.background_image_additional && ( // Check if background_image_additional exists
-                    <img
-                      className="picture"
-                      src={game.background_image_additional}
-                      alt={game.name}
-                    />
-                  )}
-                </div>
+                )}
               </div>
               <div>
                 <h2 className="title">{game.name}</h2>
-                <div>
+                <div className="share">
                   {/* SHARE SECTION */}
                   <div className="card">
                     <span>SHARE</span>
@@ -211,7 +221,21 @@ function Game({ setGames }) {
               <p>Last Updated on:&nbsp;{game.updated}</p>
             </article>
             <section>
-              <h2>Games like {game.name}</h2>
+              <h2>Games series for {game.name}</h2>
+              <div>
+                {seriesGames.map((seriesGame) => (
+                  <div key={seriesGame.id} className="series-game-preview">
+                    <img
+                      src={seriesGame.background_image}
+                      alt={seriesGame.name}
+                    />
+                    <h3>{seriesGame.name}</h3>
+                    <p>Release Date: {seriesGame.released}</p>
+                    <p>Rating: {seriesGame.rating}</p>
+                  </div>
+                ))}
+              </div>
+              <p>END OF PAGE</p>
             </section>
           </>
         )}
