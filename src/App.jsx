@@ -14,7 +14,6 @@ import GamesByPlatform from "./pages/GamesByPlatform";
 
 export const Context = React.createContext()
 const API_KEY = import.meta.env.VITE_API_KEY;
-// const BASE_URL = 'https://api.rawg.io/api/'
 
 
 function App() {
