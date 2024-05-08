@@ -1,3 +1,10 @@
+.genres-list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 3vh;
+}
+
 .genres-list {
     display: flex;
     flex-direction: row;

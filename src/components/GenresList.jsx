@@ -2,7 +2,7 @@ import { GenreCard } from "./GenreCard.jsx";
 
 export function GenresList({ genres }) {
   return (
-    <section>
+    <section className="genres-list-section">
       <h2>Genres</h2>
       <ul className="genres-list container">
         {genres.map((genre) => (
