@@ -265,6 +265,6 @@ ul {
 .series-games-container {
   display: flex; // Makes the container a flex container
   flex-wrap: wrap; // Allows the items to wrap as needed
-  justify-content: space-between; // Adds space between the items
+  justify-content: space-around; // Adds space between the items
   gap: 20px; // Adds space between each card
 }
