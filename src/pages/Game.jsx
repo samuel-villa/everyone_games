@@ -24,6 +24,7 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { SiAtari, SiCommodore, SiSega } from "react-icons/si";
 import { TbWorldWww } from "react-icons/tb";
 import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -108,7 +109,7 @@ function Game({ setGames }) {
                     alt={game.name}
                   />
                 )}
-                <video autoPlay muted>
+                <video className="picture" autoPlay muted>
                   <source src={showTrailer} type="video/mp4" />
                 </video>
               </div>
@@ -243,21 +244,23 @@ function Game({ setGames }) {
               <div className="series-games-container">
                 {seriesGames.map((seriesGame) => (
                   <div key={seriesGame.id} className="gameCard">
-                    <div className="gameCard2">
-                      <div className="gameCard__shown">
-                        <div className="imgCont">
-                          <img
-                            src={seriesGame.background_image}
-                            alt={seriesGame.name}
-                          />
-                        </div>
-                        <div className="visibleDesc">
-                          <h3>{seriesGame.name}</h3>
-                          <p>Release Date: {seriesGame.released}</p>
-                          <p>Rating: {seriesGame.rating}</p>
+                    <Link to={`/game/${seriesGame.id}`}>
+                      <div className="gameCard2">
+                        <div className="gameCard__shown">
+                          <div className="imgCont">
+                            <img
+                              src={seriesGame.background_image}
+                              alt={seriesGame.name}
+                            />
+                          </div>
+                          <div className="visibleDesc">
+                            <h3>{seriesGame.name}</h3>
+                            <p>Release Date: {seriesGame.released}</p>
+                            <p>Rating: {seriesGame.rating}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 ))}
               </div>
