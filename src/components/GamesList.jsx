@@ -64,11 +64,11 @@ export function GamesList({ games, setGames, genres, platforms }) {
   return (
     <>
       <section className="filters">
-      <h3>Filter By:</h3>
-        <div className="filterByCont"><button data-key="" className="filterBy" onClick={ handleClick }>All</button></div>
-        <div className="filterByCont"><button data-key="name" className="filterBy" onClick={ handleClick }>Name</button></div>
-        <div className="filterByCont"><button data-key="added" className="filterBy" onClick={ handleClick }>Date Added</button></div>
-        <div className="filterByCont"><button data-key="released" className="filterBy" onClick={ handleClick }>Release Date</button></div>
+        <h3>Filter By:</h3>
+        <div className="filterByCont"><button data-key="" className="filterBy" onClick={handleClick}>All</button></div>
+        <div className="filterByCont"><button data-key="name" className="filterBy" onClick={handleClick}>Name</button></div>
+        <div className="filterByCont"><button data-key="added" className="filterBy" onClick={handleClick}>Date Added</button></div>
+        <div className="filterByCont"><button data-key="released" className="filterBy" onClick={handleClick}>Release Date</button></div>
       </section>
 
       <ul className="games-list container">

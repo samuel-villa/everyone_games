@@ -14,79 +14,80 @@
     overflow: hidden;
 
     .gameCard__shown {
-        height: 100%;
+      height: 100%;
+      width: 100%;
+
+      .imgCont {
         width: 100%;
+        height: 60%;
+        overflow: hidden;
 
-        .imgCont {
-            width: 100%;
-            height: 60%;
-            overflow: hidden;
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
         }
+      }
 
-        .visibleDesc {
-            height: 40%;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            text-align: left;
-            justify-content: space-between;
-        }
+      .visibleDesc {
+        height: 40%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+        justify-content: space-between;
+      }
 
-        h2 {
-          font-size: 1.3rem;
-        }
+      h2 {
+        font-size: 1.3rem;
+      }
 
-        .platforms {
-            display: flex;
-            gap: 10px;
-            list-style-type: none;
-            padding-left: 0;
-        }
+      .platforms {
+        display: flex;
+        gap: 10px;
+        list-style-type: none;
+        padding-left: 0;
+      }
 
-        .added {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            background-color: #373737;
-            width: fit-content;
-        }
+      .added {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        background-color: #373737;
+        width: fit-content;
+      }
     }
 
     .gameCard__hidden {
-        visibility: hidden;
-        font-size: .8rem;
-        color: white;
-        background-color: #373737;
-        padding: 10px;
-        border-radius: 15px;
+      visibility: hidden;
+      font-size: .8rem;
+      color: white;
+      background-color: #373737;
+      padding: 10px;
+      border-radius: 15px;
+
+      li {
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .genres {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
 
         li {
-          display: flex;
-          gap: 5px;
-          justify-content: space-between;
-          align-items: center;
+          background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+          padding-inline: 7px;
+          border-radius: 10px;
+          font-weight: 600;
         }
-
-        .genres {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 10px;
-
-          li {
-            background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-            padding-inline: 7px;
-            border-radius: 10px;
-            font-weight: 600;
-          }
-        }
+      }
     }
   }
 

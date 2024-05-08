@@ -14,7 +14,7 @@ function GameByGenre({ games, setGames, genres, platforms }) {
 
     useEffect(() => {
         const apiCall = `${BASE_URL}games?key=${API_KEY}&genres=${id}`;
-            axios
+        axios
             .get(apiCall)
             .then((response) => {
                 setGames(response.data.results);
@@ -23,13 +23,13 @@ function GameByGenre({ games, setGames, genres, platforms }) {
                 console.log(error);
             });
     }, [id]);
-    
+
     return (
         <div>
-          <Header setGames={ setGames }/>
-          <SideBar />
-          <GamesList games={ games } genres={ genres } platforms={ platforms }/>
-      </div>
+            <Header setGames={setGames} />
+            <SideBar />
+            <GamesList games={games} genres={genres} platforms={platforms} />
+        </div>
     );
 }
 

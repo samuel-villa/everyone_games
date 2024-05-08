@@ -7,9 +7,9 @@ import { SideBar } from "../components/SideBar.jsx";
 function Genres({ genres, setGames }) {
     return (
         <div>
-            <Header setGames={ setGames }/>
+            <Header setGames={setGames} />
             <SideBar />
-            <GenresList genres={ genres }/>
+            <GenresList genres={genres} />
         </div>
     );
 }

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export function SideBar() {
   return (
     <section className="sidebar container">
-      
+
       <ul>
         <li><Link to="/new-releases"><FaFire />New releases</Link></li>
         <li><Link to="/next-releases"><MdNewReleases />Next Week releases</Link></li>

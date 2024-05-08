@@ -64,7 +64,7 @@ export function GameCard({ game }) {
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </article>
         </Link>

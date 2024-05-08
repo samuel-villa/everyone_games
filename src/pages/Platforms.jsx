@@ -7,9 +7,9 @@ import { PlatformsList } from "../components/PlatformsList.jsx";
 function Platforms({ platforms, setGames }) {
     return (
         <div>
-            <Header setGames={ setGames }/>
+            <Header setGames={setGames} />
             <SideBar />
-            <PlatformsList platforms={ platforms }/>
+            <PlatformsList platforms={platforms} />
         </div>
     );
 }
