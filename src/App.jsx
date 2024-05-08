@@ -13,6 +13,7 @@ import GamesByPlatform from "./pages/GamesByPlatform";
 
 
 const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = 'https://api.rawg.io/api/'
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   const [nextReleases, setNextReleases] = useState([]);
 
   useEffect(() => {
-    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}`;
+    const apiCall = `${BASE_URL}games?key=${API_KEY}`;
     axios.get(apiCall)
       .then(response => {
         setGames(response.data.results);
@@ -36,7 +37,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const apiCall = `https://api.rawg.io/api/genres?key=${API_KEY}`;
+    const apiCall = `${BASE_URL}genres?key=${API_KEY}`;
     axios.get(apiCall)
       .then(response => {
         setGenres(response.data.results);
@@ -47,7 +48,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const apiCall = `https://api.rawg.io/api/platforms?key=${API_KEY}`;
+    const apiCall = `${BASE_URL}platforms?key=${API_KEY}`;
     axios.get(apiCall)
       .then(response => {
         setPlatforms(response.data.results);
@@ -58,7 +59,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=90,100`;
+    const apiCall = `${BASE_URL}games?key=${API_KEY}&metacritic=90,100`;
     axios.get(apiCall)
       .then(response => {
         setPopularGames(response.data.results);
@@ -77,7 +78,7 @@ function App() {
     const formattedToday = formatDate(today);
     const formattedLastMonth = formatDate(lastMonth);
 
-    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${formattedLastMonth},${formattedToday}`;
+    const apiCall = `${BASE_URL}games?key=${API_KEY}&dates=${formattedLastMonth},${formattedToday}`;
 
     axios
       .get(apiCall)
@@ -112,7 +113,7 @@ function App() {
     const formattedNextMonthStart = formatDate(nextMonthStart);
     const formattedNextMonthEnd = formatDate(nextMonthEnd);
 
-    const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${formattedNextMonthStart},${formattedNextMonthEnd}`;
+    const apiCall = `${BASE_URL}games?key=${API_KEY}&dates=${formattedNextMonthStart},${formattedNextMonthEnd}`;
 
     axios
       .get(apiCall)
