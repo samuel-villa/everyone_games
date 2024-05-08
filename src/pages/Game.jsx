@@ -45,6 +45,7 @@ function Game({ setGames }) {
   const [game, setGame] = useState(null);
   const [seriesGames, setSeriesGames] = useState([]);
   const { id } = useParams();
+  const [showTrailer, setShowTrailer] = useState(null);
 
   const getPlatformLogo = (slug) => {
     const platformLogo = platformsLogos[slug];
@@ -57,7 +58,6 @@ function Game({ setGames }) {
       .get(apiCall)
       .then((response) => {
         setGame(response.data);
-        // Correctly use response.data.id here
         const suggestedGamesApiCall = `https://api.rawg.io/api/games/${response.data.id}/game-series?key=${API_KEY}`;
         axios
           .get(suggestedGamesApiCall)
@@ -73,8 +73,21 @@ function Game({ setGames }) {
       });
   }, [id]);
 
+  useEffect(() => {
+    const apiCall = `https://api.rawg.io/api/games/${id}/movies?key=${API_KEY}`;
+    axios
+      .get(apiCall)
+      .then((response) => {
+        setShowTrailer(response.data.results[0].data["480"]);
+        console.log(showTrailer);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
+
   return (
-    <div className="gameDetail">
+    <div className="gameDetail container">
       <Header setGames={setGames} />
       <SideBar />
 
@@ -90,11 +103,14 @@ function Game({ setGames }) {
                 />
                 {game.background_image_additional && ( // Check if background_image_additional exists
                   <img
-                    className="picture"
+                    className="picture trailer"
                     src={game.background_image_additional}
                     alt={game.name}
                   />
                 )}
+                <video autoPlay muted>
+                  <source src={showTrailer} type="video/mp4" />
+                </video>
               </div>
               <div>
                 <h2 className="title">{game.name}</h2>
@@ -221,31 +237,9 @@ function Game({ setGames }) {
               <p>Last Updated on:&nbsp;{game.updated}</p>
             </article>
             {/* SERIES SECTION */}
-            {/* <section>
-              <h2>Games series for {game.name}</h2>
-              <div>
-                {seriesGames.map((seriesGame) => (
-                  <div key={seriesGame.id}>
-                    <div>
-                      <img
-                        src={seriesGame.background_image}
-                        alt={seriesGame.name}
-                      />
-                    </div>
-
-                    <div>
-                      {" "}
-                      <h3>{seriesGame.name}</h3>
-                      <p>Release Date: {seriesGame.released}</p>
-                      <p>Rating: {seriesGame.rating}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section> */}
 
             <section>
-              <h2>Games series for {game.name}</h2>
+              {seriesGames.length > 0 && <h2>Games series for {game.name}</h2>}
               <div className="series-games-container">
                 {seriesGames.map((seriesGame) => (
                   <div key={seriesGame.id} className="gameCard">
