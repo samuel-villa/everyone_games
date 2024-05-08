@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { GameCard } from "./GameCard.jsx";
-
-
-const API_KEY = import.meta.env.VITE_API_KEY;
+import { Context } from "../App";
 
 
 export function GamesList({ games, setGames, genres, platforms }) {
 
+  const [BASE_URL, API_KEY] = useContext(Context)
   const [filterType, setFilterType] = useState(['']);
   const [nextPage, setNextPage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +19,7 @@ export function GamesList({ games, setGames, genres, platforms }) {
   const fetchGames = async () => {
     try {
       setLoading(true);
-      const apiCall = nextPage || `https://api.rawg.io/api/games?key=${API_KEY}`;
+      const apiCall = nextPage || `${BASE_URL}games?key=${API_KEY}`;
       const response = await axios.get(apiCall);
       const { results, next } = response.data;
       setGames(prevGames => [...prevGames, ...results.map(game => ({ ...game, uuid: uuidv4() }))]);

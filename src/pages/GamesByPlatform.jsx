@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Header } from "../components/Header.jsx";
 import { SideBar } from "../components/SideBar.jsx";
 import { GamesList } from "../components/GamesList.jsx";
-import "../App.css";
-import "../scss/style.scss";
-
-
-const API_KEY = import.meta.env.VITE_API_KEY;
+import { Context } from "../App";
 
 
 function GamesByPlatform({ games, setGames, genres, platforms }) {
 
+    const [BASE_URL, API_KEY] = useContext(Context)
     const { id } = useParams();
 
     useEffect(() => {
-        const apiCall = `https://api.rawg.io/api/games?key=${API_KEY}&platforms=${id}`;
+        const apiCall = `${BASE_URL}games?key=${API_KEY}&platforms=${id}`;
             axios
             .get(apiCall)
             .then((response) => {

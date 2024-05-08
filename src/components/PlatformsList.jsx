@@ -1,5 +1,6 @@
 import { PlatformCard } from "./PlatformCard.jsx";
 
+
 export function PlatformsList({ platforms }) {
   return (
     <section className="genres-list-section">
