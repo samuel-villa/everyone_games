@@ -1,111 +1,87 @@
-# EveryoneGames
+# EveryoneGames - Video Game Discovery Platform
 
-| Challenge Parameters | Challenge Details   |
-| :------------------- |:--------------------|
-| Repository           | `EveryoneGames`     |
-| Challenge type       | `Consolidation`             |
-| Duration             | `5 days`            |
-| Deadline             | `08/05/2023`        |
-| Deployment method    | `Netlify or Vercel` |
-| Group composition    | `Duo`              |
+=> [https://everyone-games.netlify.app/](https://everyone-games.netlify.app/)
 
-## Mission objectives
+This project is a video game discovery platform built using React. The platform allows users to browse, search, and explore video games across various platforms. It leverages the RAWG Video Games Database API to fetch and display game data.
 
-- [ ] Consolidate your knowledges in React.
-- [ ] Respect the clients needs.
-- [ ] Be creative when the clients are vague.
-- [ ] Create a projects from scratch that is scale-able in the future.
+## Table of Contents
 
-## Mission
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Code Quality](#code-quality)
+- [Future Enhancements](#future-enhancements)
+- [Credits](#credits)
+- [License](#license)
 
-You're client would like to have their own **_video game_** website. A website that they could use to see all up-coming video games, and all existing video games on diverse platforms. **They don't have the budget for a designer**, and hand you some **_images they found on the Internet_** to give you and idea of look and feel of the site.
-They completely trust you and think you are capable enough as a front-end developer to come up with your own touch while following the feel of the pictures.
+## Project Overview
 
-API: https://rawg.io/apidocs
+The goal of this project was to consolidate knowledge in React and create a scalable video game website. We've been provided some reference images and had to deliver a front-end solution that meets the required needs. This application was built from scratch with the potential for future scalability.
 
-#### Code Quality
+## Features
 
-We need you to enforce your _code quality_.
+- **Home Page**
+  - Displays new and trending video games.
+  - Infinite scroll for game listings.
+  - Filter games by categories: New releases, Next week releases, Pupolar games.
+  - Search functionality to find games by name.
+  - Filter games by date added, name, release date, and platforms.
+  - Game cards with hover details (average score, platforms, title, release date, genres).
 
-That's why you will use [Prettier](https://prettier.io) to format your code, and [ESLint](https://eslint.org) to ensure your code following _good practices_.
+- **Game Page**
+  - Detailed game information including trailers and screenshots.
+  - Search bar accessible on the game page to return to the homepage.
 
-> 🧨 **WARNING:** disable ESLint **is not** an option!
+## Installation
 
-## The images
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/EveryoneGames.git
+   cd EveryoneGames
+   ```
 
-![clipboard.png](_CaS1S3Bl-clipboard.png)
-![clipboard.png](XB3c9RFmG-clipboard.png)
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Must have
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-> This about the must haves in the React tool-belt.
+## Usage
 
-- Framer-motion
-- React Routing system
-- Styled components
-- Uuid
+1. Navigate to the homepage to view new and trending video games.
+2. Use the search bar to find specific games by name.
+3. Filter games by various criteria using the filter options.
+4. Click on a game card to view detailed information about the game on the game page.
 
-## Optional
+## Technologies Used
 
-> But still highly recommended to investigate and use in your future if you want to become a React developer.
+- **React**: For building the user interface.
+- **React Router**: For navigation and routing.
+- **Uuid**: For generating unique identifiers.
+- **Prettier**: For code formatting.
+- **ESLint**: For code linting and enforcing best practices.
+- **RAWG Video Games Database API**: For fetching game data.
 
-- Next.js
+## Code Quality
 
-## Client needs
+To ensure high code quality, we have used Prettier for code formatting and ESLint for enforcing good coding practices. ESLint is not disabled at any point in the project.
 
-### Home page
+## Future Enhancements
 
-The homepage will show all **new and trending** video games.
-You either add a **pagination** that shows a maximum amount of games, or create and **infinite** load.
+- Add user authentication for personalized features.
+- Implement a game comparison feature.
+- Enhance the user interface with additional animations and effects.
+- Integrate social sharing options for games.
+- Add more filtering and sorting options.
 
-You can select other categories that will display different games.
+## License
 
-#### Must have categories:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-- New releases
-- Next week releases
-- Best of the year (popular games)
-
-The user can search for games by name and use filters.
-
-**Filter one :**
-
-- Date added
-- Name
-- Release date
-
-**Filter two:**
-
-- All platforms in the database.
-
-Every game will be displayed inside a card, this card contains tiny details such as:
-
-- Average score
-- platforms
-- title
-- release date
-- genres
-- ...
-
-Don't display all details just like that, make certain details appear when the user hovers over a card.
-When the user selects a card, they get redirected to the game page.
-
-## Game page
-
-On this page the user will find all the details about the game, including trailers, screen-shots, ...  
-Add to the page that what you think is important for the user to see.
-
-The user still has access to the search-bar on this page to return to the homepage.
-
-## Done?
-
-Applications are never really finished. Try to come up with some extra features.
-What about comparing games?
-More categories?
-Maybe your favorite games that get saved to the local storage and if it exists, shown on a favorite page?
-
-All of these sound maybe complicated, but if you build your application correctly it should be easy to add new features.
-
-## Now Mr(s). Developer, it's up to you.
-
-![img](./catfortnite.gif)
+---
